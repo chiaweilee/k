@@ -1,5 +1,3 @@
-const compose = require('koa-compose')
-
-module.exports = compose([
-  require('./logger')
+module.exports = require('koa-compose')([
+  require('koa-logger')()
 ])
