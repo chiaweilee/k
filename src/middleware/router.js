@@ -1,7 +1,7 @@
 const Router = require('koa-router')
 const router = new Router()
 const { routes } = require('../config')
-const { errHandler } = require('../utils')
+const { errHandler } = require('../utils/index')
 const compose = require('koa-compose')
 const queryString = require('query-string')
 const merge = require('lodash/merge')
