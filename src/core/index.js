@@ -2,12 +2,6 @@ const app = require('./app')
 const { log } = require('../utils')
 const { port } = require('../config')
 
-// bodyParser
-app.use(require('koa-body')())
-
-// router
-app.use(require('./router'))
-
 // middleware
 app.use(require('../middleware'))
 
