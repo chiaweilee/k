@@ -1,3 +1,6 @@
+const merge = require('lodash/merge')
+const routes = require('./routes')
+
 const config = {
   cors: [
     // 'http://localhost/'
@@ -5,6 +8,6 @@ const config = {
   port: 3008
 }
 
-module.exports = require('lodash/merge')(config, {
-  routes: require('./routes')
+module.exports = merge(config, {
+  routes: routes
 })

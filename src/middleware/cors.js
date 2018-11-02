@@ -1,6 +1,7 @@
-const cors = require('../config').cors
+const { cors } = require('../config')
+const koaCors = require('@koa/cors')
 
-module.exports = require('@koa/cors')({
+module.exports = koaCors({
   origin: function ({ header }) {
     const match = cors.indexOf(header.origin)
     if (!cors || cors.length === 0 || (match > -1 && cors[match] === header.origin)) {

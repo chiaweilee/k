@@ -1,5 +1,6 @@
+const compose = require('koa-compose')
 
-module.exports = require('koa-compose')([
+module.exports = compose([
   // core
   require('./cors'),
   require('./router'),

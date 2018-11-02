@@ -1,4 +1,5 @@
-const app = require('./app')
+const Koa = require('koa')
+const app = new Koa()
 const { log } = require('../utils')
 const { port } = require('../config')
 
