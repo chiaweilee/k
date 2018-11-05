@@ -41,6 +41,10 @@ Object.keys(routes).forEach(method => {
           },
           /* parse query */queryString.parseUrl(ctx.url))
         )
+        // no-response *204*
+        if (ctx.response.status === 404) {
+          ctx.response.status = 204
+        }
       } catch (err) {
         errHandler(ctx, err)
       }
