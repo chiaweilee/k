@@ -9,7 +9,7 @@
     "restart": "pm2 restart api & pm2 monit",
     "stop": "pm2 stop api",
     "lint": "eslint --ext .js src --fix",
-    "test": "make test"
+    "test": "mocha --harmony --reporter spec --require should test/spec/*.js"
   },
   "license": "MIT",
   "dependencies": {
