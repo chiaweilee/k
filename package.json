@@ -4,9 +4,11 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "install": "npm install pm2 -g",
-    "server": "pm2 start ./src/main.js & pm2 monit",
-    "stop": "pm2 stop main",
+    "install": "npm install pm2 -g & npm install",
+    "node-start": "node ./src/main.js",
+    "start": "pm2 start ./src/main.js -i max --name api & pm2 monit",
+    "restart": "pm2 restart api & pm2 monit",
+    "stop": "pm2 stop api",
     "lint": "eslint --ext .js src --fix",
     "test": "make test"
   },
@@ -25,6 +27,7 @@
   },
   "devDependencies": {
     "eslint": "^5.8.0",
+    "leakage": "^0.4.0",
     "lint-staged": "^8.0.4",
     "mocha": "^5.2.0",
     "should": "^13.2.3",
