@@ -1,3 +1,13 @@
+### Config
+
+#### cors
+
+Type: Array | undefined
+
+* if undefined: no cors for all
+* is an empty array ([]): cors for all
+* if an array: use white-list cors control
+
 ### Route
 
 ```JavaScript
