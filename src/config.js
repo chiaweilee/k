@@ -1,6 +1,6 @@
 module.exports = {
   'Access-Control-Allow-Origin': [],
-  port: {
+  'port': {
     http: 3080,
     https: 3443
   }
