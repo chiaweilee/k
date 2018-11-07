@@ -1,4 +1,4 @@
-const routes = {
+module.exports = {
   get: {
     'home': {
       path: '/test',
@@ -37,5 +37,3 @@ const routes = {
   del: {},
   all: {}
 }
-
-module.exports = routes

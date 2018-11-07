@@ -1,15 +1,6 @@
-const Koa = require('koa')
-const app = new Koa()
-const { log } = require('../utils')
-const { port } = require('../config')
-
-// middleware
-app.use(require('../middleware'))
+const { app, start } = require('./app')
 
 module.exports = {
-  app: app,
-  start: function () {
-    app.listen(port)
-    log(`listening at *:${port}`)
-  }
+  app,
+  start
 }
