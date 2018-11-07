@@ -15,6 +15,7 @@ const validate = function (it, schema) {
 
 const configSchema = joi => joi.object({
   'Access-Control-Allow-Origin': joi.array(),
+  'router': joi.object(),
   'port': joi.alternatives().try(joi.number().port(), joi.object())
 })
 

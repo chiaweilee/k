@@ -7,7 +7,9 @@
     "node-start": "node ./src/main.js",
     "start": "pm2 start ./src/main.js -i max --name api & pm2 monit",
     "restart": "pm2 restart api & pm2 monit",
-    "stop": "pm2 stop api",
+    "stop": "pm2 stop all",
+    "delete": "pm2 delete all",
+    "list": "pm2 list",
     "lint": "eslint --ext .js src --fix",
     "test": "mocha --harmony --reporter spec --require should test/spec/*.js"
   },
@@ -22,6 +24,7 @@
     "koa-compose": "^4.1.0",
     "koa-logger": "^3.2.0",
     "koa-router": "^7.4.0",
+    "koa2-request": "^1.0.4",
     "lodash": "^4.17.11",
     "query-string": "^6.2.0",
     "redis": "^2.8.0"

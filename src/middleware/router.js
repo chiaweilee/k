@@ -1,11 +1,13 @@
 const Router = require('koa-router')
-const router = new Router()
+const routerOpts = require('../config').router
+const router = new Router(routerOpts)
 const routes = require('../routes')
 const { errHandler } = require('../utils/index')
 const compose = require('koa-compose')
 const queryString = require('query-string')
 const merge = require('lodash/merge')
 const joi = require('joi')
+const request = require('koa2-request')
 
 Object.keys(routes).forEach(method => {
   Object.keys(routes[method]).forEach(route => {
@@ -33,11 +35,12 @@ Object.keys(routes).forEach(method => {
       // router core
       try {
         await next()
-        handler(ctx, /* merge option */merge(
+        await handler(ctx, /* merge option */merge(
           {
             validate: validate,
             params: ctx.params || {},
-            body: ctx.request.body
+            body: ctx.request.body,
+            $request: request
           },
           /* parse query */queryString.parseUrl(ctx.url))
         )
