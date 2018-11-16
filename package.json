@@ -26,6 +26,7 @@
     "koa-router": "^7.4.0",
     "koa2-request": "^1.0.4",
     "lodash": "^4.17.11",
+    "memory-cache": "^0.2.0",
     "query-string": "^6.2.0",
     "redis": "^2.8.0"
   },

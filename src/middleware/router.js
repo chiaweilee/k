@@ -8,6 +8,7 @@ const queryString = require('query-string')
 const merge = require('lodash/merge')
 const joi = require('joi')
 const request = require('koa2-request')
+const cache = require('memory-cache')
 
 Object.keys(routes).forEach(method => {
   Object.keys(routes[method]).forEach(route => {
@@ -37,10 +38,11 @@ Object.keys(routes).forEach(method => {
         await next()
         await handler(ctx, /* merge option */merge(
           {
-            validate: validate,
+            $validate: validate,
             params: ctx.params || {},
             body: ctx.request.body,
-            $request: request
+            $request: request,
+            $cache: cache
           },
           /* parse query */queryString.parseUrl(ctx.url))
         )
