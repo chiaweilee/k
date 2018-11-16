@@ -1,6 +1,6 @@
 {
-  "name": "koa2",
-  "version": "0.1.0",
+  "name": "k.o.api",
+  "version": "0.1.1",
   "description": "",
   "main": "src/main.js",
   "scripts": {
