@@ -80,14 +80,29 @@ routes: {
     get: {
         'test': {
               path: '/',
-              handler: function (ctx, { query, validate }) {
-                validate(query, joi => joi.object({
+              handler: function (ctx, { query, $validate }) {
+                $validate(query, joi => joi.object({
                   // query should be an object, have and have only 'id', and its value should be 1, 2 or 3.
                   id: joi.any().valid(['1', '2', '3'])
                 }))
                   .then(() => {
                     // success, do something
                   })
+              }
+            }
+    }
+}
+```
+
+### Cache
+
+```JavaScript
+routes: {
+    get: {
+        'test': {
+              path: '/',
+              handler: function (ctx, { query, $cache }) {
+                ctx.response.body = $cache('test', () => Math.random(), 5000)
               }
             }
     }
