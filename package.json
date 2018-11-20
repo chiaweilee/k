@@ -5,8 +5,10 @@
   "main": "src/main.js",
   "scripts": {
     "node-start": "node ./src/main.js",
-    "start": "pm2 start ./src/main.js -i max --name api & pm2 monit",
-    "restart": "pm2 restart api & pm2 monit",
+    "start": "pm2 start ./src/main.js -i max --name api",
+    "start:watch": "pm2 start ./src/main.js -i max --name api --watch",
+    "monit": "pm2 monit",
+    "restart": "pm2 restart api",
     "stop": "pm2 stop all",
     "delete": "pm2 delete all",
     "list": "pm2 list",
