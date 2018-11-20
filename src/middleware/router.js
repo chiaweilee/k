@@ -10,6 +10,17 @@ const joi = require('joi')
 const request = require('koa2-request')
 const cache = require('memory-cache')
 
+// cache extend
+cache.auto = async (cacheKey, expires, failback) => {
+  const _cache = cache.get(cacheKey)
+  if (!_cache) {
+    const result = typeof failback === 'function' ? await failback() : failback
+    cache.put(cacheKey, result, expires)
+    return result
+  }
+  return _cache
+}
+
 Object.keys(routes).forEach(method => {
   Object.keys(routes[method]).forEach(route => {
     const path = routes[method][route].path || route
