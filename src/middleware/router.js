@@ -27,10 +27,11 @@ Object.keys(routes).forEach(method => {
     const handler = typeof routes[method][route] === 'function' ? routes[method][route] : (typeof routes[method][route].handler === 'function' ? routes[method][route].handler : function () {})
     router[method](route, path, async function (ctx, next) {
       // joi validator
-      const validate = function (it, schema) {
+      const validate = async function (it, schema) {
         this.validate = joi.validate.bind(null, it, schema(joi), err => {
           if (err) {
             errHandler(ctx, err)
+            this.callback(/* err= */true)
           } else {
             if (typeof this.callback === 'function') {
               this.callback()
@@ -41,6 +42,9 @@ Object.keys(routes).forEach(method => {
           then: callback => {
             this.callback = callback
             this.validate()
+          },
+          catch: failback => {
+            this.failback = failback
           }
         }
       }
