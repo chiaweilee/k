@@ -1,5 +1,7 @@
 ### Config
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/chiaweilee/k.o.api.svg)](https://greenkeeper.io/)
+
 #### CORS
 
 Type: Array | undefined
